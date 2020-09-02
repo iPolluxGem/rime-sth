@@ -1,0 +1,12 @@
+schema:
+  schema_id: latin-japnese
+  name: 整洁日语输入
+  version: "0.1"
+  author:
+    - 半分星 <pollux_glory@hotmail.com>
+  description: |
+    希望能不用在win的输入法设置里添东西了。这是第一个，往后再添加韩语、法语、希腊语之类的
+
+engine:
+  processors:
+    

@@ -1,12 +1,85 @@
+# Rime schema
+# encoding: utf-8
+
 schema:
   schema_id: latin-japnese
   name: 整洁日语输入
   version: "0.1"
   author:
     - 半分星 <pollux_glory@hotmail.com>
-  description: |
+  description: 
     希望能不用在win的输入法设置里添东西了。这是第一个，往后再添加韩语、法语、希腊语之类的
+
+switches:
+  - name = ascii_mode
+    reset:  0
+    status = [日文,英文]
+  - name = kana_switch
+    reset:  0
+    status = [平假名,片假名]
 
 engine:
   processors:
-    
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - echo_translator
+    - punct_translator
+    - script_translator
+    - reverse_lookup_translator
+
+  punctuator:
+    half_shape: $symtable
+      "a":あ
+      "i":い
+      "u":う
+      "e":え
+      "o":お
+      "ka":か
+      "ki":き
+      "ku":く
+      "ke":け
+      "ko":こ
+      "sa":さ
+      "shi":し
+      "su":す
+      "se":せ
+      "so":そ
+      "ta":た
+      "chi":ち
+      "tsu":つ
+      "te":て
+      "to":と
+      "na":な
+      "ni":に
+      "nu":ぬ
+      "ne":ね
+      "no":の
+      "ha":は
+      "hi":ひ
+      "fu":ふ
+      "he":へ
+      "ho":ほ
+      "ra":ら
+      "ri":り
+      "ru":る
+      "re":れ
+      "ro":ろ
+      "yu":ゆ
+      "nn":ん
+      
+    full_shape: *symtable
+  
+  
